@@ -35,5 +35,7 @@ The following tools and resources might help get the project off the ground fast
   * [An introduction to CUDA by Nvidia](https://developer.nvidia.com/blog/even-easier-introduction-cuda/)
   * ["What Every Programmer Should Know about Memory" by Ulrich Drepper; Section 6.2.1 talks about "tiling" for matrix multiplication](https://people.freebsd.org/~lstewart/articles/cpumemory.pdf)
 
-
-
+The following resources might be useful for making the matrix multiplication a bit faster:
+  * [UC Riverside slides on histograms](https://www.cs.ucr.edu/~mchow009/teaching/cs147/winter20/slides/11-Histogram.pdf): my usual example for teaching about data races and atomics in CUDA the first time
+  * [More advanced histogram code from Nvidia](https://developer.nvidia.com/blog/gpu-pro-tip-fast-histograms-using-shared-atomics-maxwell/)
+  * [Recent intermediate-level CUDA course by AMD](https://gpu-primitives-course.github.io/): look specifically for the part on "parallel reduction"
