@@ -4,16 +4,14 @@
 #include <cstdlib> // for rand() and srand()
 #include <ctime>   // for clock()
 
-// Error handling macro
-#define CUDA_CALL(x) do { if((x) != cudaSuccess) { \\
-    printf("Error at %s:%d\\n",__FILE__,__LINE__); \\
-    return EXIT_FAILURE;}} while(0)
+// Error handling macros
+#define CUDA_CALL(x) do { if((x) != cudaSuccess) { \
+    printf("Error at %s:%d: %s\n",__FILE__,__LINE__, cudaGetErrorString(x)); \
+    return;}} while(0)
 
-#define CUBLAS_CALL(x) do { if((x) != CUBLAS_STATUS_SUCCESS) { \\
-    printf("Error at %s:%d\\n",__FILE__,__LINE__); \\
-    return EXIT_FAILURE;}} while(0)
-
-
+#define CUBLAS_CALL(x) do { if((x) != CUBLAS_STATUS_SUCCESS) { \
+    printf("Error at %s:%d\n",__FILE__,__LINE__); \
+    return;}} while(0)
 
 void initializeMatrix(float* matrix, int numRows, int numCols) {
     for (int i = 0; i < numRows; i++) {
@@ -60,7 +58,7 @@ void runMatrixMultiplication(int num_A_rows, int num_A_cols, int num_B_cols) {
     CUDA_CALL(cudaEventCreate(&stop));
     CUDA_CALL(cudaEventRecord(start, 0));
 
-    // Perform matrix multiplication using Tensor Cores
+    // Perform matrix multiplication using cuBLAS
     float alpha = 1.0f;
     float beta = 0.0f;
     CUBLAS_CALL(cublasSgemm(handle, CUBLAS_OP_N, CUBLAS_OP_N, num_B_cols, num_A_rows, num_A_cols, &alpha, d_B, num_B_cols, d_A, num_A_cols, &beta, d_C, num_B_cols));
@@ -94,6 +92,7 @@ void runMatrixMultiplication(int num_A_rows, int num_A_cols, int num_B_cols) {
     cudaEventDestroy(start);
     cudaEventDestroy(stop);
 }
+
 int main() {
     runMatrixMultiplication(1000, 1000, 1000);
     runMatrixMultiplication(2500, 2500, 2500);

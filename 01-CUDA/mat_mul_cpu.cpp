@@ -26,8 +26,7 @@ void matrixMultiplyCPU(float* A, float* B, float* C, int num_A_rows, int num_A_c
     }
 }
 
-int main() {
-    int num_A_rows = 1000, num_A_cols = 1000, num_B_cols = 1000;
+void runMatrixMultiplication(int num_A_rows, int num_A_cols, int num_B_cols) {
     int seed = 42; // Set manual seed
 
     // Allocate memory for matrices A, B, and C
@@ -69,5 +68,11 @@ int main() {
     delete[] B;
     delete[] C;
 
+}
+
+int main() {
+    runMatrixMultiplication(1000, 1000, 1000);
+    runMatrixMultiplication(2500, 2500, 2500);
+    runMatrixMultiplication(5000, 5000, 5000);
     return 0;
 }

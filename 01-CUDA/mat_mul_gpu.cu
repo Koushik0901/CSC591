@@ -30,7 +30,7 @@ void initializeMatrix(float* matrix, int numRows, int numCols) {
 }
 
 void runMatrixMultiplication(int num_A_rows, int num_A_cols, int num_B_cols) {
-
+   
     dim3 threads_per_block(16, 16);
     dim3 num_blocks((num_B_cols + threads_per_block.x - 1) / threads_per_block.x,
                     (num_A_rows + threads_per_block.y - 1) / threads_per_block.y);
@@ -99,7 +99,6 @@ void runMatrixMultiplication(int num_A_rows, int num_A_cols, int num_B_cols) {
     free(A);
     free(B);
     free(C);
-
 }
 
 int main() {

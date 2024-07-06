@@ -62,7 +62,7 @@ void runMatrixMultiplication(int num_A_rows, int num_A_cols, int num_B_cols) {
     A = new float[num_A_rows * num_A_cols];
     B = new float[num_A_cols * num_B_cols];
     C = new float[num_A_rows * num_B_cols];
-
+    std::srand(42);
     initializeMatrix(A, num_A_rows, num_A_cols);
     initializeMatrix(B, num_A_cols, num_B_cols);
 
