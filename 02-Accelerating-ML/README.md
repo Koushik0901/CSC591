@@ -29,5 +29,8 @@ In preparing the report, you should work through the following milestones:
 ## Tools & Resources
 
 The following tools and resources might help get the project off the ground faster:
-  * TBD
+  * [A Dummy's Guide to Word2Vec](https://medium.com/@manansuri/a-dummys-guide-to-word2vec-456444f3c673)
+  * [Word2Vec from Scratch](https://medium.com/@enozeren/word2vec-from-scratch-with-python-1bba88d9f221)
+  * [NLTK API Docs](https://www.nltk.org/api/nltk.html)
+  * [PyTorch API Docs](https://pytorch.org/docs/stable/index.html)
 
