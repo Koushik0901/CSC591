@@ -255,8 +255,6 @@ plotting_word_vectors(model, closest_words, tokens)
 
 """# using library"""
 
-!pip install glove-python3
-
 from glove import Corpus, Glove
 
 nltk.download('brown')
