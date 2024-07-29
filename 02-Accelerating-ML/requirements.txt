@@ -1,0 +1,8 @@
+numpy
+matplotlib
+nltk
+scikit-learn
+torch
+glove-python3
+transformers
+tqdm
